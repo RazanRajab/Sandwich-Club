@@ -17,11 +17,13 @@ public class JsonUtils {
         try {
             JSONObject MainJsonObject = new JSONObject(json);
             JSONObject NameJsonObject = MainJsonObject.getJSONObject("name");
-            String mainName = NameJsonObject.getString("mainName");
+            //use the safe optString() method instead of getString() which will return an empty
+            //string instead of null if the value for the that key is not found in the JSON Object.
+            String mainName = NameJsonObject.optString("mainName");
             JSONArray otherNames = NameJsonObject.getJSONArray("alsoKnownAs");
-            String placeOfOrigin = MainJsonObject.getString("placeOfOrigin");
-            String description = MainJsonObject.getString("description");
-            String image = MainJsonObject.getString("image");
+            String placeOfOrigin = MainJsonObject.optString("placeOfOrigin");
+            String description = MainJsonObject.optString("description");
+            String image = MainJsonObject.optString("image");
             JSONArray ingredientsJSONArray = MainJsonObject.getJSONArray("ingredients");
 
             List<String> alsoKnownAs = new ArrayList<String>();
