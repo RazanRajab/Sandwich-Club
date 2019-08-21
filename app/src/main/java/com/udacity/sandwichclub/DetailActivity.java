@@ -2,6 +2,8 @@ package com.udacity.sandwichclub;
 
 import android.content.Intent;
 import android.os.Bundle;
+//import androidx.appcompat.app.AppCompatActivity;
+
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,6 +58,7 @@ public class DetailActivity extends AppCompatActivity {
         populateUI();
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.mipmap.ic_launcher_round)
                 .into(ImageIv);
 
         setTitle(sandwich.getMainName());
