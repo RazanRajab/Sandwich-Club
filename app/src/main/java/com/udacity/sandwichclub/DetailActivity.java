@@ -80,9 +80,26 @@ public class DetailActivity extends AppCompatActivity {
 
 
     private void populateUI() {
-        also_known_tv.setText(sandwich.getAlsoKnownAs().toString());
-        description_tv.setText(sandwich.getDescription());
-        origin_tv.setText(sandwich.getPlaceOfOrigin());
-        ingredients_tv.setText(sandwich.getIngredients().toString());
+        if (sandwich.getAlsoKnownAs().size() != 0) {
+            also_known_tv.setText(sandwich.getAlsoKnownAs().toString());
+        }
+        else {
+            also_known_tv.setText(R.string.NO_DATA_MEESAGE);
+        }
+        if (!sandwich.getDescription().trim().equals("") && sandwich.getDescription() != null) {
+            description_tv.setText(sandwich.getDescription());
+        } else {
+            description_tv.setText(R.string.NO_DATA_MEESAGE);
+        }
+        if (!sandwich.getPlaceOfOrigin().trim().equals("") && sandwich.getPlaceOfOrigin() != null) {
+            origin_tv.setText(sandwich.getPlaceOfOrigin());
+        } else {
+            origin_tv.setText(R.string.NO_DATA_MEESAGE);
+        }
+        if (sandwich.getIngredients().size() != 0) {
+            ingredients_tv.setText(sandwich.getIngredients().toString());
+        } else {
+            ingredients_tv.setText(R.string.NO_DATA_MEESAGE);
+        }
     }
 }
