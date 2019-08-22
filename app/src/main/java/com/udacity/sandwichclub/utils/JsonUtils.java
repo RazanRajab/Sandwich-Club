@@ -26,18 +26,18 @@ public class JsonUtils {
             String image = MainJsonObject.optString("image");
             JSONArray ingredientsJSONArray = MainJsonObject.getJSONArray("ingredients");
 
-            List<String> alsoKnownAs = new ArrayList<String>();
-            List<String> ingredients = new ArrayList<String>();
+            List<String> alsoKnownAs = new ArrayList<>();
+            List<String> ingredients = new ArrayList<>();
 
             for (int i = 0; i < otherNames.length(); i++) {
 
-                String name = otherNames.getString(i);
+                String name = otherNames.optString(i);
                 alsoKnownAs.add(name);
             }
 
             for (int i = 0; i < ingredientsJSONArray.length(); i++) {
 
-                String ingredient = ingredientsJSONArray.getString(i);
+                String ingredient = ingredientsJSONArray.optString(i);
                 ingredients.add(ingredient);
             }
 
